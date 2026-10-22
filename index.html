@@ -3,107 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101a35">
-<title>PrivacyGuard | Personal Data Privacy</title>
+<meta name="color-scheme" content="light dark">
+<title>PrivacyGuard | Personal Data Privacy Toolkit</title>
 <style>
-:root{--bg:#0b1224;--panel:#121d35;--panel2:#172541;--ink:#edf4ff;--muted:#aab8d0;--line:#2b3a58;--teal:#5eead4;--blue:#8bb8ff;--gold:#f7c873;--red:#ff8d9b;--green:#7be0ad}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#17284a 0,#0b1224 55%);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh}a{color:var(--teal)}button,input,select,textarea{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#203252;color:var(--ink);font-weight:650}button:hover{filter:brightness(1.13)}button.primary{background:var(--teal);color:#08221f;border-color:transparent}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}.wrap{max-width:1080px;margin:auto;padding:22px 16px 48px}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:10px 0 24px}.brand{display:flex;align-items:center;gap:12px}.shield{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--teal),#72a7ff);display:grid;place-items:center;color:#10203b;font-size:23px;font-weight:900}.brand h1{font-size:20px;line-height:1.15;margin:0}.brand p{margin:4px 0 0;color:var(--muted);font-size:13px}.pill{border:1px solid #2d6e69;border-radius:99px;padding:6px 11px;color:var(--teal);font-size:12px;font-weight:750;letter-spacing:.06em}.hero{padding:26px 0 20px;max-width:780px}.eyebrow{color:var(--teal);text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:.15em}.hero h2{font-size:clamp(30px,5vw,48px);line-height:1.1;letter-spacing:-.035em;margin:10px 0 12px}.hero p{max-width:680px;color:var(--muted);margin:0;font-size:17px}.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:15px;margin-top:18px}.card{grid-column:span 12;background:linear-gradient(145deg,rgba(23,37,65,.96),rgba(17,28,51,.98));border:1px solid var(--line);border-radius:18px;padding:20px;min-width:0;box-shadow:0 12px 30px rgba(0,0,0,.12)}.half{grid-column:span 6}.third{grid-column:span 4}.card h3{margin:0 0 6px;font-size:18px}.muted{color:var(--muted)}.small{font-size:13px}.tip-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.tag{font-size:11px;font-weight:800;color:var(--gold);letter-spacing:.1em}.tip-text{font-size:20px;font-weight:700;line-height:1.35;margin:14px 0 8px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px}.stat{background:rgba(8,16,34,.42);border:1px solid var(--line);border-radius:12px;padding:12px}.stat strong{display:block;font-size:25px;line-height:1.2}.stat span{color:var(--muted);font-size:12px}.progress{height:9px;border-radius:99px;background:#263552;overflow:hidden;margin:12px 0 5px}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--blue));transition:width .2s}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.select,textarea,input[type=text]{width:100%;background:#0b152b;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:11px 12px}.select{margin:10px 0}.post{white-space:pre-wrap;min-height:115px;margin-top:12px;padding:14px;border-radius:12px;border:1px solid var(--line);background:#0b152b;color:#e5efff}.status{padding:11px 13px;border-radius:10px;background:#0b152b;border:1px solid var(--line);color:var(--muted);font-size:14px;overflow-wrap:anywhere}.status.error{color:#ffd0d5;border-color:#8f3e51}.checklist-link{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.footer{color:var(--muted);font-size:12px;margin-top:24px}.hidden{display:none}@media(max-width:720px){.half,.third{grid-column:span 12}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.card{padding:16px}.wrap{padding:14px 12px 35px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
-</head>
-<body>
-<div class="wrap">
-<header class="top"><div class="brand"><div class="shield" aria-hidden="true">✓</div><div><h1>PrivacyGuard</h1><p>Personal data privacy awareness</p></div></div><span class="pill">SMALL ACTIONS. SAFER HABITS.</span></header>
-<section class="hero"><div class="eyebrow">Your weekly privacy companion</div><h2>Build better privacy habits, one small action at a time.</h2><p>Check your digital habits, turn a practical privacy action into an awareness post, and keep your progress on this device.</p></section>
-<div class="grid">
-<section class="card half"><div class="tip-head"><h3>✦ This week's privacy tip</h3><span class="tag">WEEKLY</span></div><div id="tip" class="tip-text">Preparing your weekly tip…</div><p id="tipWhy" class="muted small">A practical step for safer digital habits.</p><div class="actions"><button id="newTip">Show another tip</button></div></section>
-<section class="card half"><h3>Your privacy progress</h3><p class="muted small">Based on the checklist you have completed on this device.</p><div class="stats"><div class="stat"><strong id="done">—</strong><span>Items checked</span></div><div class="stat"><strong id="total">—</strong><span>Total items</span></div><div class="stat"><strong id="percent">—</strong><span>Completed</span></div></div><div class="progress" role="progressbar" aria-label="Checklist completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress"><span id="progressFill"></span></div><p id="progressNote" class="muted small">Connecting to your checklist…</p></section>
-<section class="card half"><h3>Make an awareness post</h3><p class="muted small">Choose a privacy action to generate a short, practical post you can edit before sharing.</p><label class="small" for="actionSelect">Privacy action</label><select id="actionSelect" class="select"><option value="">Loading checklist actions…</option></select><div class="actions"><button class="primary" id="generate">Generate post</button></div><div id="post" class="post" aria-live="polite">Your awareness post will appear here.</div><div class="actions"><button id="copy">Copy post</button><button id="download">Download .txt</button></div><p id="postStatus" class="muted small" aria-live="polite"></p></section>
-<section class="card half"><h3>Checklist</h3><p class="muted">Your original checklist remains the source of truth. Open it to tick items, see category scores, print, or save as PDF.</p><div class="status" id="loadStatus" role="status">Loading your privacy checklist…</div><div class="actions"><a id="checklistAnchor" href="./02_privacy_checklist.html" target="_blank" rel="noopener"><button class="primary" type="button">Open full checklist ↗</button></a><button id="retry">Retry loading</button></div></section>
-</div>
-<footer class="footer">PrivacyGuard is an educational awareness tool, not legal advice. Progress is read from the checklist's local browser storage when available. Keep personal information out of public awareness posts.</footer>
-</div>
-<script>
-(function(){
-'use strict';
-var CHECKLIST_PATHS=['./02_privacy_checklist.html','./weekly-privacy-checklist/02_privacy_checklist.html','./Weekly-Privacy-Checklist/02_privacy_checklist.html'];
-var CHECK_KEY='privacy_checklist_v1';
-var tips=[
-['Review app permissions','Once a month, check which apps can access your location, microphone, camera, and contacts. Remove access that is not needed.'],
-['Protect your email first','Use a unique password and turn on two-step verification for your email. It can help protect password resets for other accounts too.'],
-['Pause before tapping links','Unexpected scholarship, internship, prize, and KYC messages can be used in scams. Verify through an official website or a known phone number.'],
-['Keep club data minimal','For an event, collect only what you actually need, tell people why, limit access, and delete the list when it is no longer needed.'],
-['Keep personal details out of AI prompts','Replace names, phone numbers, ID numbers, marks, and private chats with fictional examples before using an AI tool.'],
-['Check social visibility','View your profile as someone outside your friend list would. Review old posts, tags, public contact details, and location sharing.'],
-['Never share an OTP','Banks and legitimate support staff should not need you to tell them an OTP, PIN, or password. Do not share it with anyone.'],
-['Back up important files','Keep a safe backup of important documents and make sure your phone or computer has a screen lock and current updates.']
-];
-var $=function(id){return document.getElementById(id)};
-var checklist=[],lastTip=-1;
-function setStatus(message,isError){var el=$('loadStatus');el.textContent=message;el.className='status'+(isError?' error':'')}
-function extractData(source){
-  var match=/\b(?:var|let|const)\s+DATA\s*=\s*/.exec(source);
-  if(!match)throw new Error('Could not find the DATA array in the checklist file.');
-  var start=match.index+match[0].length;
-  while(/\s/.test(source[start]||''))start++;
-  if(source[start]!=='[')throw new Error('The DATA variable was found, but it does not start with an array.');
-  var depth=0,quote='',escaped=false;
-  for(var i=start;i<source.length;i++){
-    var ch=source[i];
-    if(quote){if(escaped){escaped=false;continue}if(ch==='\\'){escaped=true;continue}if(ch===quote)quote='';continue}
-    if(ch==='"'||ch==="'"||ch==='`'){quote=ch;continue}
-    if(ch==='[')depth++;
-    else if(ch===']'){depth--;if(depth===0){var raw=source.slice(start,i+1);try{return JSON.parse(raw)}catch(e){throw new Error('Found DATA, but could not parse its array: '+e.message)}}}
-  }
-  throw new Error('The DATA array appears incomplete or has an unmatched bracket.');
-}
-function normalizeData(data){
-  if(!Array.isArray(data))throw new Error('Checklist DATA is not an array.');
-  return data.map(function(section,index){
-    if(!Array.isArray(section)||section.length<3||!Array.isArray(section[2]))throw new Error('Checklist section '+(index+1)+' has an unexpected format.');
-    return {name:String(section[0]||('Category '+(index+1))),description:String(section[1]||''),items:section[2].map(function(item){return String(item)})};
-  });
-}
-function getStoredState(){try{return JSON.parse(localStorage.getItem(CHECK_KEY)||'{}')}catch(e){return {}}}
-function renderChecklist(data,path){
-  checklist=data;
-  var select=$('actionSelect');select.innerHTML='';
-  data.forEach(function(section,si){section.items.forEach(function(item,ii){var opt=document.createElement('option');opt.value=si+'-'+ii;opt.textContent=section.name.replace(/^\d+\.\s*/,'')+' · '+item;select.appendChild(opt)})});
-  $('checklistAnchor').href=path;
-  var total=0,done=0,state=getStoredState();data.forEach(function(section,si){section.items.forEach(function(_,ii){total++;if(state[si+'-'+ii]===true)done++})});
-  $('done').textContent=done;$('total').textContent=total;$('percent').textContent=(total?Math.round(done/total*100):0)+'%';
-  var pct=total?Math.round(done/total*100):0;$('progressFill').style.width=pct+'%';$('progress').setAttribute('aria-valuenow',pct);
-  $('progressNote').textContent=total?(done===total?'All checklist items are checked. Keep the habits going.':(total-done)+' items remain unchecked. Open the checklist to update your progress.'):'No checklist items found.';
-  setStatus('Connected: '+data.length+' categories and '+total+' checklist items loaded. Progress is stored in this browser.',false);
-  $('actionSelect').selectedIndex=0;
-}
-async function loadChecklist(){
-  setStatus('Loading your privacy checklist…',false);
-  var errors=[];
-  for(var i=0;i<CHECKLIST_PATHS.length;i++){
-    var path=CHECKLIST_PATHS[i];
-    try{
-      var response=await fetch(path,{cache:'no-store'});
-      if(!response.ok)throw new Error('HTTP '+response.status);
-      var source=await response.text();
-      var data=normalizeData(extractData(source));
-      renderChecklist(data,path);return;
-    }catch(e){errors.push(path+' ('+e.message+')')}
-  }
-  setStatus('Could not load the checklist. Tried: '+errors.join(' · ')+'. Check that 02_privacy_checklist.html is committed in the same GitHub Pages folder as index.html, then tap Retry.',true);
-  $('progressNote').textContent='Checklist data could not be loaded.';
-}
-function showTip(){var idx=Math.floor(Date.now()/(7*24*60*60*1000))%tips.length;if(idx===lastTip)idx=(idx+1)%tips.length;lastTip=idx;$('tip').textContent=tips[idx][0];$('tipWhy').textContent=tips[idx][1]}
-function makePost(){
-  if(!checklist.length){$('postStatus').textContent='Checklist actions are not available until the checklist loads.';return}
-  var parts=$('actionSelect').value.split('-'),section=checklist[Number(parts[0])],action=section&&section.items[Number(parts[1])];
-  if(!action){$('postStatus').textContent='Choose a checklist action first.';return}
-  var text='🔐 PRIVACY HABIT OF THE DAY\n\n'+action+'\n\nSmall actions help protect personal data. Review your settings, pause before sharing information, and help friends build safer digital habits.\n\n#PrivacyAwareness #DataProtection #DigitalSafety';
-  $('post').textContent=text;$('postStatus').textContent='Draft generated. Review it before sharing.';
-}
-$('newTip').addEventListener('click',showTip);$('generate').addEventListener('click',makePost);$('retry').addEventListener('click',loadChecklist);
-$('copy').addEventListener('click',async function(){var text=$('post').textContent;if(!text||text==='Your awareness post will appear here.'){$('postStatus').textContent='Generate a post first.';return}try{await navigator.clipboard.writeText(text);$('postStatus').textContent='Post copied.'}catch(e){$('postStatus').textContent='Copy was blocked by the browser. Select the post text and copy it manually.'}});
-$('download').addEventListener('click',function(){var text=$('post').textContent;if(!text||text==='Your awareness post will appear here.'){$('postStatus').textContent='Generate a post first.';return}var blob=new Blob([text+'\n'],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='privacy-awareness-post.txt';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);$('postStatus').textContent='Text file downloaded.'});
-showTip();loadChecklist();
-})();
-</script>
-</body>
-</html>
+:root{--bg:#f4f5f7;--pan:#fff;--ink:#131a2b;--mut:#5a6479;--line:#dcdfe6;--ac:#1f3fbf;--acs:#e8edff;--acx:#fff;--warn:#b45309;--good:#0f766e;--bad:#b4232c;--r:10px}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1424;--pan:#151d33;--ink:#eaf0ff;--mut:#9eabc6;--line:#28344f;--ac:#8fb0ff;--acs:#1b2850;--acx:#0e1424;--warn:#f0b25a;--good:#5fd3b4;--bad:#ff8f98}}
+*{box-sizing:border-box}
+html{scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.25;margin:0}
+button,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:1px solid var(--line);background:var(--pan);padding:9px 14px;border-radius:var(--r);font-weight:600}
+button:hover{border-color:var(--ac)}
+button.p{background:var(--ac);color:var(--acx);border-color:transparent}
+:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header{background:var(--pan);border-bottom:1px solid var(--line)}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:16px 0}
+.logo{display:flex;gap:12px;align-items:center}
+.mark{width:40px;height:40px;border-radius:9px;background:var(--ac);color:var(--acx);display:grid;place-items:center;font-size:20px}
+.logo h1{font-size:20px}.logo p{margin:0;color:var(--mut);font-size:13px}
+.chip{font-size:13px;padding:5px 10px;border:1px solid var(--line);border-radius:99px;color:var(--mut)}
+.chip.ok{color:var(--good);border-color:var(--good)}
+nav{position:sticky;top:0;z-index:5;background:var(--pan);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:4px;overflow-x:auto}
+nav button{border:0;border-bottom:3px solid transparent;border-radius:0;background:none;padding:12px 14px;white-space:nowrap;color:var(--mut)}
