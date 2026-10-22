@@ -3,7 +3,7 @@
 A lightweight, browser-based privacy-awareness dashboard for college students and club volunteers.
 
 PrivacyGuard helps users build safer digital habits through weekly privacy tips, a personal data privacy checklist, and an awareness-post generator.
-
+https://kameshwaran-vi-britannia.github.io/Privacy-draft/
 ## Features
 
 - 🛡️ **Weekly Privacy Tip:** Highlights a practical privacy action each week.
