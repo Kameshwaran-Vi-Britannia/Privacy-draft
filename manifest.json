@@ -1,0 +1,470 @@
+{
+ "advisories": [
+  "Check which apps on your phone can use your location today and set most of them to 'Only while using'.",
+  "Never enter a UPI PIN to receive money. The PIN is only for paying.",
+  "Turn on two-step verification for your email first. Every other account can be reset from it.",
+  "Before pasting anything into an AI tool, remove names, phone numbers and ID numbers.",
+  "Report online financial fraud on 1930 within the first hours. Speed helps recovery.",
+  "Review the devices linked to your WhatsApp and log out of any you do not recognise.",
+  "Collect only the data an event really needs, and delete it when the event ends.",
+  "A message that creates panic and asks for an OTP, link click or payment is a scam until proven otherwise."
+ ],
+ "tips": [
+  {
+   "c": "Passwords",
+   "t": "Use passphrases",
+   "d": "Join four unrelated words into a long passphrase. Length beats clever symbols, and it is easier to remember."
+  },
+  {
+   "c": "Passwords",
+   "t": "One password per account",
+   "d": "Reusing a password lets one leak open many accounts. Use a password manager to keep them unique."
+  },
+  {
+   "c": "Passwords",
+   "t": "Protect your email first",
+   "d": "Your email can reset every other account. Give it the longest password and an authenticator-app code."
+  },
+  {
+   "c": "Accounts",
+   "t": "Prefer an authenticator app",
+   "d": "App-based codes are safer than SMS codes, because SIM-swap attacks can capture text messages."
+  },
+  {
+   "c": "Accounts",
+   "t": "Save recovery codes",
+   "d": "Store backup codes offline. They save you if you lose your phone and cannot receive a code."
+  },
+  {
+   "c": "Phone",
+   "t": "Audit permissions monthly",
+   "d": "Open Settings > Privacy > Permission manager. Remove camera, mic, contacts and location from apps that do not need them."
+  },
+  {
+   "c": "Phone",
+   "t": "Hide lock-screen previews",
+   "d": "Notification previews can show OTPs and messages to anyone near your phone. Hide content on the lock screen."
+  },
+  {
+   "c": "Phone",
+   "t": "Install apps from official stores only",
+   "d": "APK files sent on WhatsApp or SMS are a common way to install spyware or steal banking details."
+  },
+  {
+   "c": "Phone",
+   "t": "Update your software",
+   "d": "Updates fix security holes that attackers already know about. Turn on automatic updates."
+  },
+  {
+   "c": "UPI",
+   "t": "PIN is only for paying",
+   "d": "If anyone asks for your UPI PIN to send you money, it is a scam. Receiving money never needs a PIN."
+  },
+  {
+   "c": "UPI",
+   "t": "Do not scan QR codes to receive money",
+   "d": "Scanning a QR code always sends money out. A stranger asking you to scan to get paid is cheating you."
+  },
+  {
+   "c": "UPI",
+   "t": "Set daily limits",
+   "d": "Lower the daily transaction limit in your banking app. It caps the damage if your phone or account is misused."
+  },
+  {
+   "c": "Scams",
+   "t": "Beat the urgency trick",
+   "d": "Scammers say 'today only' or 'account blocked'. Stop, breathe and verify through the official app or website."
+  },
+  {
+   "c": "Scams",
+   "t": "Free jobs do not charge fees",
+   "d": "A real internship or job never asks you to pay a registration fee or share bank details by link."
+  },
+  {
+   "c": "Scams",
+   "t": "Verify callers",
+   "d": "Banks, police and courier firms do not demand OTPs or money on a call. Hang up and call the official number."
+  },
+  {
+   "c": "Fraud response",
+   "t": "Call 1930 early",
+   "d": "For online financial fraud, call 1930 and report on cybercrime.gov.in quickly. Early reports improve the chance of freezing the money."
+  },
+  {
+   "c": "Social media",
+   "t": "Keep profiles private",
+   "d": "Set your account to private and review who can see your posts, friends list and tagged photos."
+  },
+  {
+   "c": "Social media",
+   "t": "Never post ID documents",
+   "d": "Photos of tickets, boarding passes, college IDs and Aadhaar cards reveal numbers that criminals reuse."
+  },
+  {
+   "c": "Social media",
+   "t": "Turn off live location sharing",
+   "d": "Posting where you are right now tells strangers where you are not, such as your empty home."
+  },
+  {
+   "c": "WhatsApp",
+   "t": "Silence unknown callers",
+   "d": "Settings > Privacy > Calls > Silence unknown callers. It cuts spam and scam calls from numbers you do not know."
+  },
+  {
+   "c": "WhatsApp",
+   "t": "Turn on two-step verification",
+   "d": "Add a PIN in Settings > Account. Without it, someone who gets your SMS code can take over your account."
+  },
+  {
+   "c": "WhatsApp",
+   "t": "Check linked devices",
+   "d": "Settings > Linked devices shows where your account is open. Log out of anything you do not recognise."
+  },
+  {
+   "c": "Browser",
+   "t": "Block trackers",
+   "d": "Use a browser with tracker blocking or a content-blocking extension to reduce ad profiling."
+  },
+  {
+   "c": "Browser",
+   "t": "Do not save cards in the browser",
+   "d": "Use your bank's tokenised checkout or a virtual card instead of storing card details in the browser."
+  },
+  {
+   "c": "Wi-Fi",
+   "t": "Avoid public Wi-Fi for banking",
+   "d": "Open networks can be watched. Use mobile data for banking, or a trusted VPN if you must use public Wi-Fi."
+  },
+  {
+   "c": "Wi-Fi",
+   "t": "Secure your router",
+   "d": "Change the default admin password and use WPA2 or WPA3. Turn off WPS if you do not need it."
+  },
+  {
+   "c": "AI tools",
+   "t": "Redact before you prompt",
+   "d": "Replace names, numbers and addresses with placeholders such as 'Student A' before pasting text into an AI chatbot."
+  },
+  {
+   "c": "AI tools",
+   "t": "Never paste secrets",
+   "d": "Passwords, API keys, OTPs and private documents do not belong in an AI prompt. Chats may be stored."
+  },
+  {
+   "c": "AI tools",
+   "t": "Verify AI answers",
+   "d": "AI can invent facts and quote old laws. Check legal or financial answers against an official source."
+  },
+  {
+   "c": "DPDP rights",
+   "t": "Know your rights",
+   "d": "The DPDP Act lets you ask what data a company holds, correct or erase it, complain, and name a nominee."
+  },
+  {
+   "c": "DPDP rights",
+   "t": "Withdraw consent",
+   "d": "You can take back consent as easily as you gave it. Write to the company's grievance contact to start."
+  },
+  {
+   "c": "DPDP rights",
+   "t": "Complain in two steps",
+   "d": "Complain to the company first. If it does not solve the issue, you can approach the Data Protection Board."
+  },
+  {
+   "c": "DPDP rights",
+   "t": "Children's data needs a parent",
+   "d": "For anyone under 18, companies need verifiable parent or guardian consent and cannot track or target them."
+  },
+  {
+   "c": "Club data",
+   "t": "Collect the minimum",
+   "d": "For an event, ask for name and email only. Do not ask for Aadhaar, home address or date of birth without a reason."
+  },
+  {
+   "c": "Club data",
+   "t": "State the purpose",
+   "d": "Tell people why you collect their data and when you will delete it, and add a clear consent line."
+  },
+  {
+   "c": "Club data",
+   "t": "Delete after the event",
+   "d": "Remove sign-up sheets, WhatsApp exports and form responses once the event is over."
+  },
+  {
+   "c": "Identity",
+   "t": "Share masked Aadhaar",
+   "d": "When a masked copy is accepted, share it instead of the full number. Write the purpose and date on any copy you give."
+  },
+  {
+   "c": "Identity",
+   "t": "Check numbers issued in your name",
+   "d": "Use the government's Sanchar Saathi portal to check mobile connections registered under your ID."
+  },
+  {
+   "c": "Shopping",
+   "t": "Use cash on delivery or virtual cards",
+   "d": "On unfamiliar shops, avoid sharing full card details. Virtual cards limit what can be stolen."
+  },
+  {
+   "c": "Device safety",
+   "t": "Lock all devices",
+   "d": "Use a screen lock on phone and laptop, and enable find-my-device so you can wipe a lost phone."
+  }
+ ],
+ "posts": [
+  {
+   "t": "WhatsApp settings that matter",
+   "p1": "Most people never open WhatsApp's privacy page, yet it controls who can call you, see your profile and add you to groups. Scammers often start with a call or a group invite from a stranger, so these settings are your first wall.",
+   "p2": "Today, open Settings > Privacy and turn on 'Silence unknown callers', limit who can add you to groups, and switch on two-step verification with a PIN. It takes two minutes and blocks the most common account-takeover trick.",
+   "tags": "#WhatsApp #CyberSafety #PrivacyFirst"
+  },
+  {
+   "t": "The UPI PIN rule",
+   "p1": "A UPI PIN exists for one purpose: sending money out. If someone asks you to enter it to receive a refund, a prize or a payment, they are not sending you money. They are taking it.",
+   "p2": "Remember: receiving money never needs a PIN, and scanning a QR code always pays. If a buyer or 'customer care' insists, stop the chat, and report on 1930 if money is lost.",
+   "tags": "#UPI #FraudAwareness #1930"
+  },
+  {
+   "t": "Think before you paste into AI",
+   "p1": "AI chatbots feel private, but anything you type may be stored or reviewed depending on the tool's settings. Pasting a friend's chat, your marks list or an ID number shares other people's data without their permission.",
+   "p2": "Replace real names and numbers with placeholders before you prompt, never paste passwords or keys, and check important answers against official sources. AI explains; you verify.",
+   "tags": "#AIPrivacy #ResponsibleAI #DataProtection"
+  },
+  {
+   "t": "Your four DPDP rights",
+   "p1": "India's Digital Personal Data Protection Act, 2023 treats you as a Data Principal, which means your data belongs to you. It gives you the right to information, correction and erasure, grievance redressal and nomination.",
+   "p2": "Most company duties switch on in phases up to about May 2027, so check MeitY for the latest dates. Until then, ask politely in writing, keep a copy, and escalate when a company ignores you.",
+   "tags": "#DPDP #DataRights #DigitalIndia"
+  },
+  {
+   "t": "Stop SIM-swap fraud",
+   "p1": "In a SIM-swap, a criminal gets a duplicate of your SIM and receives your OTPs. Sudden loss of signal with no reason is a warning sign you should never ignore.",
+   "p2": "Prefer authenticator apps over SMS codes, add a PIN with your operator, and call your bank and operator the moment your phone loses service unexpectedly.",
+   "tags": "#SIMSwap #OTP #CyberSecurity"
+  },
+  {
+   "t": "Fake internship alerts",
+   "p1": "Every placement season, students get messages promising paid internships for a small registration fee. The pattern is always the same: urgency, a payment, and a request for Aadhaar, PAN or bank details through a link.",
+   "p2": "Check the company's official website and HR email, never pay to get hired, and report the message. If you already paid, call 1930 immediately.",
+   "tags": "#InternshipScam #StudentSafety #Cybercrime"
+  },
+  {
+   "t": "Cookie banners decoded",
+   "p1": "The bright 'Accept all' button is designed to be easy, while the choices that protect you hide behind 'Manage preferences'. Accepting everything often allows tracking and ad profiling beyond what the site needs.",
+   "p2": "Take the extra ten seconds to switch off non-essential and advertising cookies. Consent should be a real choice, and you can change it later.",
+   "tags": "#Cookies #Consent #PrivacyMatters"
+  },
+  {
+   "t": "App permissions audit",
+   "p1": "A flashlight app does not need your contacts, and a game does not need your microphone. Every extra permission is a door that someone else can walk through.",
+   "p2": "Open your phone's permission manager this week, review camera, mic, location and contacts, and remove access for anything you do not use daily.",
+   "tags": "#AppPermissions #MobileSecurity #DigitalHygiene"
+  },
+  {
+   "t": "Passphrases beat passwords",
+   "p1": "'P@ssw0rd1' feels strong but is quick to crack. A passphrase of four unrelated words is far longer and easier for you to remember.",
+   "p2": "Use a unique passphrase for your email, a password manager for everything else, and add a second step. One strong habit protects dozens of accounts.",
+   "tags": "#Passwords #2FA #StaySafeOnline"
+  },
+  {
+   "t": "Your email is the master key",
+   "p1": "Almost every account can be reset through your email. If someone controls your inbox, they can quietly take over your bank, social media and shopping accounts.",
+   "p2": "Give your email the strongest password you have, turn on app-based two-step verification, and review its recovery options and forwarding rules once a year.",
+   "tags": "#EmailSecurity #AccountSafety #Cyberhygiene"
+  },
+  {
+   "t": "Club forms done right",
+   "p1": "Student clubs collect names, numbers and IDs every week, which makes volunteers data collectors under the spirit of data protection law. Asking for too much puts your classmates at risk if the sheet leaks.",
+   "p2": "Ask only for what the event needs, add a clear consent line, keep the data in one protected place, and delete it after the event. Less data means less risk.",
+   "tags": "#StudentClubs #DataMinimisation #DPDP"
+  },
+  {
+   "t": "Public Wi-Fi caution",
+   "p1": "Free campus or cafe Wi-Fi is convenient, but open networks can be watched or copied by attackers. Logging in to banking there can expose your credentials.",
+   "p2": "Use mobile data for payments and banking, avoid entering passwords on unknown networks, and use a trusted VPN if you have no other choice.",
+   "tags": "#PublicWiFi #VPN #OnlineSafety"
+  },
+  {
+   "t": "Mask your Aadhaar",
+   "p1": "A full Aadhaar number is a powerful identifier, and copies given casually can be misused. Many services accept less than you think.",
+   "p2": "Where it is accepted, share a masked copy, write the purpose and date on any photocopy, and never post ID images on social media.",
+   "tags": "#Aadhaar #IdentitySafety #DigitalIndia"
+  },
+  {
+   "t": "Spot a phishing message",
+   "p1": "Phishing messages copy banks, delivery firms and government offices, then pressure you to click. Typical signs are a strange link, spelling errors, and a threat that your account will close today.",
+   "p2": "Do not click. Open the official app or type the website yourself, and report suspicious messages on the platform. If you shared details, change passwords and call 1930 for money loss.",
+   "tags": "#Phishing #ScamAlert #CyberAwareness"
+  },
+  {
+   "t": "Oversharing on social media",
+   "p1": "Birthdays, college names, travel plans and live locations help friends, but they also help scammers answer security questions and plan impersonation.",
+   "p2": "Set your profile to private, remove ID and ticket photos, and delay holiday posts until you are back home.",
+   "tags": "#SocialMedia #Oversharing #PrivacyTips"
+  },
+  {
+   "t": "Delete accounts you do not use",
+   "p1": "An old shopping or food app account can still hold your phone number, address and order history. If that company is breached, your data leaks even though you stopped using it years ago.",
+   "p2": "Use the in-app delete option or write to the company's grievance contact asking for erasure, and keep a screenshot as proof. Fewer copies of your data mean less risk.",
+   "tags": "#RightToErasure #DataPrivacy #DPDP"
+  },
+  {
+   "t": "Two-step verification, simply",
+   "p1": "A password alone can be guessed, leaked or tricked out of you. A second step, such as a code from an authenticator app, stops most takeover attempts even when the password is known.",
+   "p2": "Turn it on for email, banking and social media today, and save the backup codes somewhere offline.",
+   "tags": "#2FA #AccountSecurity #StaySafe"
+  },
+  {
+   "t": "Children and consent",
+   "p1": "Under the DPDP Act, anyone below 18 is a child, and a company needs verifiable parent or guardian consent before using their data. It also cannot track or target them with ads.",
+   "p2": "If you are 17 and sign up for apps or college portals, involve a parent where the service asks for it, and report platforms that ignore the rule.",
+   "tags": "#ChildSafety #DPDP #DataProtection"
+  },
+  {
+   "t": "Lost phone checklist",
+   "p1": "A lost phone is a lost key to your messages, email and payments. The first hour matters most.",
+   "p2": "Call your operator to block the SIM, lock or wipe the phone with find-my-device, change your email and banking passwords, and use the government's Sanchar Saathi portal to block the device. File a report too.",
+   "tags": "#LostPhone #Cybersafety #IdentityProtection"
+  },
+  {
+   "t": "GDPR vs DPDP in one minute",
+   "p1": "Europe's GDPR has applied since 2018 and gives people many rights, including data portability and objection, with fines up to 20 million euros or 4 percent of turnover. India's DPDP Act is newer and built around consent.",
+   "p2": "Both say: collect only what you need, be open about why, keep it safe and delete it when done. Learn the shared rules, and they will protect you everywhere.",
+   "tags": "#GDPR #DPDP #PrivacyLaw"
+  },
+  {
+   "t": "Virtual cards for online shopping",
+   "p1": "Saving your real card on many websites multiplies the places a leak can happen. One careless merchant can expose it.",
+   "p2": "Use tokenised checkout, virtual cards or cash on delivery for unfamiliar shops, and switch on instant transaction alerts.",
+   "tags": "#OnlineShopping #CardSafety #FraudPrevention"
+  },
+  {
+   "t": "Check connections in your name",
+   "p1": "Fraudsters sometimes take SIM connections using other people's IDs. You may not know until a problem appears.",
+   "p2": "Check mobile numbers registered against your ID on the Sanchar Saathi portal, and report any that are not yours.",
+   "tags": "#SancharSaathi #IdentityTheft #DigitalSafety"
+  },
+  {
+   "t": "Why AI answers need checking",
+   "p1": "AI tools can state wrong section numbers, invent rights that do not exist and quote old versions of laws with total confidence. This is called hallucination.",
+   "p2": "Give the tool the source text, ask it to say 'not found' when unsure, request sources and dates, and confirm on MeitY or other official sites.",
+   "tags": "#AI #Hallucination #VerifyFirst"
+  },
+  {
+   "t": "What to do after a data leak",
+   "p1": "If a service you use reports a breach, assume your email and password are exposed. Attackers try the same password on other sites within hours.",
+   "p2": "Change that password everywhere it was reused, turn on two-step verification, watch for phishing that mentions the breach, and complain to the company if it was careless with your data.",
+   "tags": "#DataBreach #Passwords #CyberResponse"
+  },
+  {
+   "t": "Weekly privacy habit",
+   "p1": "Privacy is not a one-time setup, it is a routine. People who check a few settings every week stay safer than those who panic after an incident.",
+   "p2": "Pick one small task: review one app's permissions, update your phone, check who sees your posts, and delete one unused account. Ten minutes a week adds up.",
+   "tags": "#PrivacyHabits #DigitalWellbeing #CyberSafe"
+  }
+ ],
+ "notices": [
+  {
+   "id": "erasure",
+   "name": "Erasure of personal data",
+   "subject": "Request for erasure of personal data (DPDP Act, 2023)",
+   "body": "To,\nThe Data Protection Officer / Grievance Officer\n{company}\n\nDate: {date}\n\nSubject: Request for erasure of my personal data\n\nDear Sir/Madam,\n\nI am a Data Principal whose personal data is processed by {company}. My account identifier is {account}.\n\nUnder the Digital Personal Data Protection Act, 2023 (including Sections 6 and 12), I withdraw my consent and request that you erase my personal data and stop processing it, unless you are required by law to retain it. If any data must be retained, please tell me what it is and the legal reason.\n\nPlease confirm in writing, within 30 days, that this has been done. If I do not receive a satisfactory reply, I may approach the Data Protection Board of India.\n\nSincerely,\n{name}"
+  },
+  {
+   "id": "access",
+   "name": "Information about my data",
+   "subject": "Request for information about personal data (DPDP Act, 2023)",
+   "body": "To,\nThe Data Protection Officer / Grievance Officer\n{company}\n\nDate: {date}\n\nSubject: Request for a summary of my personal data\n\nDear Sir/Madam,\n\nI am a Data Principal with account identifier {account}.\n\nUnder the Digital Personal Data Protection Act, 2023 (including Section 11), please provide a summary of the personal data you hold about me, the processing activities, and the names of other Data Fiduciaries or processors with whom it has been shared.\n\nPlease reply in writing within 30 days.\n\nSincerely,\n{name}"
+  },
+  {
+   "id": "correction",
+   "name": "Correction of my data",
+   "subject": "Request for correction of personal data (DPDP Act, 2023)",
+   "body": "To,\nThe Data Protection Officer / Grievance Officer\n{company}\n\nDate: {date}\n\nSubject: Request for correction of my personal data\n\nDear Sir/Madam,\n\nMy account identifier with {company} is {account}.\n\nUnder the Digital Personal Data Protection Act, 2023 (including Section 12), I request correction, completion and updating of my personal data. The details to be corrected are: [write the wrong and correct details here].\n\nPlease confirm in writing within 30 days.\n\nSincerely,\n{name}"
+  },
+  {
+   "id": "grievance",
+   "name": "Grievance before the Board",
+   "subject": "Grievance regarding personal data (DPDP Act, 2023)",
+   "body": "To,\nThe Grievance Officer\n{company}\n\nDate: {date}\n\nSubject: Grievance regarding the handling of my personal data\n\nDear Sir/Madam,\n\nMy account identifier is {account}. I am raising a grievance under Section 13 of the Digital Personal Data Protection Act, 2023 about the following issue: [describe what happened and when].\n\nPlease resolve this and reply in writing within 30 days. If it is not resolved, I intend to approach the Data Protection Board of India.\n\nSincerely,\n{name}"
+  }
+ ],
+ "playbooks": [
+  {
+   "t": "Online financial fraud or UPI scam",
+   "steps": [
+    "Call 1930 at once and report on cybercrime.gov.in.",
+    "Tell your bank and ask it to block the transaction, card and UPI.",
+    "Take screenshots of chats, numbers, transaction IDs and links.",
+    "Change banking passwords and log out of all devices.",
+    "Do not pay anything to anyone who promises to recover the money."
+   ]
+  },
+  {
+   "t": "Hacked social media or email account",
+   "steps": [
+    "Reset the password from the official recovery page.",
+    "Remove unknown devices and sessions in security settings.",
+    "Turn on two-step verification with an authenticator app.",
+    "Warn your contacts not to click anything sent from the account.",
+    "Reset passwords on other accounts that used the same password."
+   ]
+  },
+  {
+   "t": "Lost or stolen phone",
+   "steps": [
+    "Call your operator to block the SIM.",
+    "Lock or wipe the phone with find-my-device.",
+    "Use the Sanchar Saathi portal to block the device.",
+    "Change email, banking and social media passwords.",
+    "File a police report and tell your bank."
+   ]
+  },
+  {
+   "t": "Company misused or leaked your data",
+   "steps": [
+    "Write to the company's grievance contact and keep a copy (see Notice Generator).",
+    "Ask what data it holds and request correction or erasure.",
+    "If it does not fix the issue, you can approach the Data Protection Board of India.",
+    "Change passwords and watch for phishing that mentions the leak.",
+    "Note that many company duties under the DPDP Rules apply in phases up to about May 2027."
+   ]
+  }
+ ],
+ "events": [
+  "Register with an alias or secondary email address.",
+  "Give a phone number only if the event really needs one.",
+  "Untick pre-ticked boxes for sponsor emails and calls.",
+  "Do not upload ID cards or Aadhaar copies for badges.",
+  "Check what your badge QR code reveals before you wear or post it.",
+  "Read how long the organisers keep your data and who gets the attendee list.",
+  "Do not post your ticket or QR code on social media.",
+  "After the event, ask the organisers to delete your registration data."
+ ],
+ "rights": [
+  {
+   "t": "Right to information (Section 11)",
+   "d": "Ask a company for a summary of the personal data it processes about you, what it does with it, and who else it has been shared with."
+  },
+  {
+   "t": "Right to correction and erasure (Section 12)",
+   "d": "Ask to correct, complete or update your data, and to erase it when it is no longer needed for the purpose you agreed to."
+  },
+  {
+   "t": "Right to grievance redressal (Section 13)",
+   "d": "Complain to the company first. If it does not solve the problem, you can approach the Data Protection Board of India."
+  },
+  {
+   "t": "Right to nominate (Section 14)",
+   "d": "Name another person to use your rights if you die or are unable to act for yourself."
+  },
+  {
+   "t": "Withdrawing consent (Section 6)",
+   "d": "You can take back your consent at any time, and it should be as easy as giving it."
+  },
+  {
+   "t": "Your duties (Section 15)",
+   "d": "Do not impersonate someone else, hide important facts when giving data, or file false complaints. Breaking these duties can lead to a penalty of up to Rs 10,000."
+  }
+ ]
+}
