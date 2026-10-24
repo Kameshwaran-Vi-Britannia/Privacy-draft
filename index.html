@@ -1,629 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrivacyGuard - Total Digital Privacy Suite</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        .active-tab {
-            border-bottom: 2px solid #3b82f6;
-            color: #3b82f6;
-            font-weight: 600;
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #1f2937;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #4b5563;
-            border-radius: 3px;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Copilot - DPDP Awareness for Students</title>
+<style>
+:root{--bg:#0b1220;--card:#121b2e;--line:#243049;--tx:#e6ebf5;--mu:#94a3b8;--ac:#2dd4bf;--bad:#f87171;--ok:#4ade80;--warn:#fbbf24}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:18px 16px 8px;max-width:960px;margin:auto}h1{margin:0;font-size:22px}h1 span{color:var(--ac)}
+.sub{color:var(--mu);margin:2px 0 0;font-size:13px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:8px 16px;max-width:960px;margin:auto}
+nav button{flex:none;background:var(--card);color:var(--mu);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:inherit;font-size:13px;cursor:pointer}
+nav button.on{background:var(--ac);color:#04201c;border-color:var(--ac);font-weight:700}
+main{max-width:960px;margin:auto;padding:8px 16px 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
+.card h2{margin:0 0 6px;font-size:17px}.card h3{margin:0 0 6px;font-size:15px;color:var(--ac)}
+.banner{background:#10243a;border:1px solid #1d4ed855;border-radius:12px;padding:10px 14px;margin:8px 0;font-size:14px}
+.hide{display:none}.mu{color:var(--mu);font-size:13px}
+textarea,input,select{width:100%;background:#0a1020;color:var(--tx);border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;font-size:14px}
+textarea{min-height:140px;resize:vertical}
+button.b{background:var(--ac);color:#04201c;border:0;border-radius:10px;padding:9px 14px;font:inherit;font-weight:700;cursor:pointer;margin:6px 6px 0 0}
+button.g{background:#1b2740;color:var(--tx);border:1px solid var(--line);border-radius:10px;padding:9px 14px;font:inherit;cursor:pointer;margin:6px 6px 0 0}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.bar{height:12px;background:#1b2740;border-radius:99px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;width:0;background:var(--bad);transition:width .25s}
+label.ck{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line);cursor:pointer}label.ck:first-of-type{border-top:0}
+label.ck input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--ac)}label.ck input:checked+span{color:var(--mu);text-decoration:line-through}
+.tag{display:inline-block;font-size:11px;font-weight:700;color:var(--ac);border:1px solid var(--line);border-radius:6px;padding:1px 7px;margin-bottom:4px}
+mark{border-radius:4px;padding:0 2px;color:#111}.High{background:#fca5a5}.Medium{background:#fde68a}.Low{background:#bae6fd}
+.pill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700;color:#111}
+pre{white-space:pre-wrap;word-break:break-word;background:#0a1020;border:1px solid var(--line);border-radius:10px;padding:12px;font:13px/1.55 ui-monospace,Menlo,monospace;margin:8px 0}
+a{color:var(--ac)}ol{padding-left:20px}.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+footer{text-align:center;color:var(--mu);font-size:12px;padding:20px 16px}
+</style>
 </head>
-<body class="bg-gray-950 text-gray-100 min-h-screen font-sans flex flex-col justify-between">
+<body>
+<header>
+<h1>Privacy <span>Copilot</span></h1>
+<p class="sub">Capstone 6: How can AI help explain data privacy rights and responsibilities in simple language for students?</p>
+</header>
+<nav id="nav"></nav>
+<main>
+<div class="banner" id="daily">Loading today's privacy advisory...</div>
+<div id="err" class="card hide"></div>
 
-    <!-- Header Navigation -->
-    <header class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center space-x-3">
-                    <i data-lucide="shield-check" class="w-8 h-8 text-blue-500"></i>
-                    <span class="text-xl font-bold tracking-tight text-white">PrivacyGuard <span class="text-xs bg-blue-900/80 text-blue-300 border border-blue-700 px-2 py-0.5 rounded-full ml-1">India Edition</span></span>
-                </div>
-                <div class="flex items-center space-x-2 text-sm text-gray-400">
-                    <i data-lucide="lock" class="w-4 h-4 text-emerald-400"></i>
-                    <span class="hidden md:inline">100% Client-Side & Private</span>
-                </div>
-            </div>
-        </div>
-        <!-- Scrollable Navigation Tabs -->
-        <nav class="bg-gray-900/90 border-t border-gray-800 overflow-x-auto custom-scrollbar">
-            <div class="max-w-7xl mx-auto px-4 flex space-x-6 text-sm whitespace-nowrap">
-                <button onclick="switchTab('checklist')" id="tab-checklist" class="py-3 px-1 active-tab flex items-center space-x-2 hover:text-blue-400 transition">
-                    <i data-lucide="check-square" class="w-4 h-4"></i><span>47-Point Checklist</span>
-                </button>
-                <button onclick="switchTab('scanner')" id="tab-scanner" class="py-3 px-1 flex items-center space-x-2 text-gray-400 hover:text-blue-400 transition">
-                    <i data-lucide="scan-line" class="w-4 h-4"></i><span>AI Prompt Scanner</span>
-                </button>
-                <button onclick="switchTab('compliance')" id="tab-compliance" class="py-3 px-1 flex items-center space-x-2 text-gray-400 hover:text-blue-400 transition">
-                    <i data-lucide="scale" class="w-4 h-4"></i><span>DPDP Legal Tools</span>
-                </button>
-                <button onclick="switchTab('incident')" id="tab-incident" class="py-3 px-1 flex items-center space-x-2 text-gray-400 hover:text-blue-400 transition">
-                    <i data-lucide="alert-triangle" class="w-4 h-4"></i><span>Incident Response</span>
-                </button>
-                <button onclick="switchTab('events')" id="tab-events" class="py-3 px-1 flex items-center space-x-2 text-gray-400 hover:text-blue-400 transition">
-                    <i data-lucide="ticket" class="w-4 h-4"></i><span>Event Privacy</span>
-                </button>
-                <button onclick="switchTab('knowledge')" id="tab-knowledge" class="py-3 px-1 flex items-center space-x-2 text-gray-400 hover:text-blue-400 transition">
-                    <i data-lucide="book-open" class="w-4 h-4"></i><span>100+ Tips & Library</span>
-                </button>
-                <button onclick="switchTab('social')" id="tab-social" class="py-3 px-1 flex items-center space-x-2 text-gray-400 hover:text-blue-400 transition">
-                    <i data-lucide="share-2" class="w-4 h-4"></i><span>Post Generator</span>
-                </button>
-            </div>
-        </nav>
-    </header>
+<section id="t-check"><div class="card"><h2>Privacy checklist</h2><p class="mu" id="chsrc"></p>
+<div style="display:flex;justify-content:space-between;gap:10px"><b id="chscore">0 / 0</b><b id="chlevel"></b></div>
+<div class="bar"><i id="chbar"></i></div>
+<button class="g" onclick="resetCheck()">Reset</button><a class="g" style="text-decoration:none;display:inline-block" href="privacy_checklist.html">Open original checklist</a></div>
+<div id="chlist"></div></section>
 
-    <!-- Main Content Area -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+<section id="t-scan" class="hide"><div class="card"><h2>Personal data scanner</h2>
+<p class="mu">Checks text for Aadhaar (checksum verified), PAN, mobile numbers, emails, UPI IDs, card numbers (Luhn verified), IFSC, passwords, OTP/PIN/CVV, API keys, date of birth and PIN code. It runs only in your browser. It cannot detect names or free-text addresses.</p>
+<textarea id="sin" placeholder="Paste a prompt or text here..."></textarea>
+<button class="b" onclick="runScan()">Scan</button><button class="b" onclick="redact()">Auto-redact</button>
+<button class="g" onclick="sample(1)">Risky sample</button><button class="g" onclick="sample(0)">Clean sample</button><button class="g" onclick="clearScan()">Clear</button>
+<div id="sout"></div></div></section>
 
-        <!-- Banner Alert for Daily Updates -->
-        <div id="daily-update-banner" class="mb-6 p-4 bg-gradient-to-r from-blue-900/40 via-indigo-900/40 to-purple-900/40 border border-blue-700/50 rounded-xl flex items-start space-x-3 text-sm">
-            <i data-lucide="bell" class="w-5 h-5 text-blue-400 shrink-0 mt-0.5"></i>
-            <div>
-                <span class="font-bold text-blue-300">Daily Privacy Advisory:</span>
-                <span id="daily-advisory-text" class="text-gray-300 ml-1">Loading today's privacy recommendation...</span>
-            </div>
-        </div>
+<section id="t-post" class="hide"><div class="card"><h2>Awareness post generator</h2>
+<p class="mu">Pick a topic and platform. Each post has a hook paragraph, an action paragraph and hashtags.</p>
+<select id="ptopic"></select><div style="height:8px"></div>
+<select id="pplat"><option value="li">LinkedIn</option><option value="wa">WhatsApp</option><option value="ig">Instagram caption</option></select>
+<button class="b" onclick="makePost()">Generate</button><button class="g" onclick="randPost()">Random topic</button>
+<pre id="pout" class="hide"></pre><button class="g hide" id="pcopy" onclick="copyTxt('pout')">Copy post</button></div></section>
 
-        <!-- 1. CHECKLIST TAB -->
-        <div id="sec-checklist" class="tab-content">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-                <div>
-                    <h1 class="text-2xl font-bold text-white">47-Item Privacy Checklist</h1>
-                    <p class="text-gray-400 text-sm">Audit your digital footprint across 8 key privacy domains.</p>
-                </div>
-                <!-- Progress Indicator -->
-                <div class="bg-gray-900 p-4 rounded-xl border border-gray-800 flex items-center space-x-4 min-w-[260px]">
-                    <div class="flex-grow">
-                        <div class="flex justify-between text-xs mb-1">
-                            <span class="text-gray-400">Completion Score</span>
-                            <span id="score-text" class="font-bold text-blue-400">0%</span>
-                        </div>
-                        <div class="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden">
-                            <div id="score-bar" class="bg-blue-500 h-2.5 transition-all duration-300" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    <button onclick="resetChecklist()" class="text-xs text-gray-400 hover:text-red-400 underline">Reset</button>
-                </div>
-            </div>
+<section id="t-tips" class="hide"><div class="card"><h2>Tips library</h2><input id="tq" oninput="renderTips()" placeholder="Search tips (SIM, UPI, WhatsApp, AI...)">
+<div class="chips" id="tchips"></div></div><div class="grid" id="tgrid"></div></section>
 
-            <!-- Categories Accordion / Grid -->
-            <div id="checklist-container" class="space-y-4"></div>
-        </div>
+<section id="t-notice" class="hide"><div class="card"><h2>DPDP request letter generator</h2>
+<p class="mu">Most company duties under the DPDP Rules apply in phases up to about May 2027, so treat this as a formal written request and keep a copy. Not legal advice.</p>
+<select id="ntype" onchange="makeNotice()"></select><div style="height:8px"></div>
+<input id="nname" placeholder="Your full name" oninput="makeNotice()"><div style="height:8px"></div>
+<input id="ncomp" placeholder="Company or app name" oninput="makeNotice()"><div style="height:8px"></div>
+<input id="nacc" placeholder="Account email or ID (avoid sensitive numbers)" oninput="makeNotice()">
+<pre id="nout"></pre><button class="b" onclick="copyTxt('nout')">Copy letter</button></div></section>
 
-        <!-- 2. AI PROMPT SCANNER TAB -->
-        <div id="sec-scanner" class="tab-content hidden">
-            <div class="max-w-3xl mx-auto">
-                <div class="mb-6 text-center">
-                    <h1 class="text-2xl font-bold text-white">Local AI Prompt Sanitizer</h1>
-                    <p class="text-gray-400 text-sm mt-1">Detect PII (Aadhaar, PAN, Emails, Phone Numbers, Passwords) before sending prompts to ChatGPT, Claude, or Gemini.</p>
-                </div>
-                <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-300 mb-2">Input Prompt or Text:</label>
-                        <textarea id="scanner-input" rows="6" class="w-full bg-gray-950 border border-gray-800 rounded-lg p-3 text-sm focus:outline-none focus:border-blue-500 text-gray-200" placeholder="Paste your text or AI prompt here to check for sensitive personal data..."></textarea>
-                    </div>
-                    <div class="flex space-x-3">
-                        <button onclick="scanPrompt()" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-lg text-sm transition flex items-center justify-center space-x-2">
-                            <i data-lucide="shield-alert" class="w-4 h-4"></i><span>Scan Text</span>
-                        </button>
-                        <button onclick="sanitizePrompt()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-medium py-2 px-4 rounded-lg text-sm transition flex items-center justify-center space-x-2">
-                            <i data-lucide="wand-2" class="w-4 h-4"></i><span>Auto-Redact PII</span>
-                        </button>
-                    </div>
-                    <div id="scanner-output" class="hidden mt-4 p-4 rounded-lg bg-gray-950 border border-gray-800 text-sm space-y-2"></div>
-                </div>
-            </div>
-        </div>
+<section id="t-rights" class="hide"><div class="card"><h2>Your rights under the DPDP Act, 2023</h2><p class="mu">Most company duties under the DPDP Rules apply in phases up to about May 2027. Check MeitY for current dates.</p></div><div class="grid" id="rgrid"></div></section>
 
-        <!-- 3. INDIAN LEGAL COMPLIANCE TAB (DPDP ACT 2023) -->
-        <div id="sec-compliance" class="tab-content hidden">
-            <div class="mb-6">
-                <h1 class="text-2xl font-bold text-white">Indian DPDP Act Compliance & Citizen Tools</h1>
-                <p class="text-gray-400 text-sm">Tools and legal draft generators under the Digital Personal Data Protection Act (2023).</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- Legal Notice Generator -->
-                <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 space-y-4">
-                    <h2 class="text-lg font-semibold text-blue-400 flex items-center space-x-2">
-                        <i data-lucide="file-text" class="w-5 h-5"></i><span>DPDP Data Erasure Notice Generator</span>
-                    </h2>
-                    <p class="text-xs text-gray-400">Generate a formal legal notice demanding data deletion from telecom, apps, or online services in India.</p>
-                    <div class="space-y-3 text-sm">
-                        <input type="text" id="dpdp-name" placeholder="Your Full Name" class="w-full bg-gray-950 border border-gray-800 rounded p-2 text-xs text-gray-200">
-                        <input type="text" id="dpdp-company" placeholder="Company / Data Fiduciary Name (e.g. Swiggy, Telecom Operator)" class="w-full bg-gray-950 border border-gray-800 rounded p-2 text-xs text-gray-200">
-                        <input type="text" id="dpdp-account" placeholder="Registered Email / Phone with Company" class="w-full bg-gray-950 border border-gray-800 rounded p-2 text-xs text-gray-200">
-                        <button onclick="generateDPDPNotice()" class="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 rounded text-xs font-semibold">Generate Notice Draft</button>
-                    </div>
-                    <textarea id="dpdp-output" rows="8" class="w-full bg-gray-950 border border-gray-800 rounded p-2 text-xs text-gray-300 focus:outline-none hidden" readonly></textarea>
-                </div>
+<section id="t-events" class="hide"><div class="card"><h2>Event registration privacy checklist</h2><p class="mu">For webinars, hackathons, fests and expos.</p><div id="elist"></div><b id="escore"></b></div></section>
 
-                <!-- Rights Quick Reference -->
-                <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 space-y-4">
-                    <h2 class="text-lg font-semibold text-emerald-400 flex items-center space-x-2">
-                        <i data-lucide="gavel" class="w-5 h-5"></i><span>Your Rights Under DPDP Act 2023</span>
-                    </h2>
-                    <ul class="space-y-3 text-sm text-gray-300">
-                        <li class="flex items-start space-x-2">
-                            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 mt-1 shrink-0"></i>
-                            <div><strong>Right to Access:</strong> Request a summary of personal data being processed and entities it was shared with.</div>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 mt-1 shrink-0"></i>
-                            <div><strong>Right to Correction & Erasure:</strong> Obligation on platforms to delete your data when consent is withdrawn.</div>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 mt-1 shrink-0"></i>
-                            <div><strong>Right to Grievance Redressal:</strong> Right to complain to the Data Protection Board of India if issues aren't resolved.</div>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 mt-1 shrink-0"></i>
-                            <div><strong>Right to Nominate:</strong> Nominate an individual to exercise data rights in case of death or incapacity.</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<section id="t-emerg" class="hide"><div class="grid" id="pbs"></div>
+<div class="card"><h3>Helplines and portals</h3><p>Financial fraud: <b>1930</b> and <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a>. Cyber incidents: <a href="https://www.cert-in.org.in" target="_blank" rel="noopener">CERT-In</a>. Law text and rules: <a href="https://www.meity.gov.in" target="_blank" rel="noopener">MeitY</a>.</p></div></section>
+</main>
+<footer>Educational use only. Not legal advice. Everything runs in your browser; nothing is sent anywhere.</footer>
 
-        <!-- 4. INCIDENT RESPONSE GUIDES TAB -->
-        <div id="sec-incident" class="tab-content hidden">
-            <div class="mb-6">
-                <h1 class="text-2xl font-bold text-white">Emergency Incident Response Playbooks</h1>
-                <p class="text-gray-400 text-sm">Step-by-step emergency instructions for cyber incidents and security breaches.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Playbook 1 -->
-                <div class="bg-gray-900 border border-red-900/50 rounded-xl p-5 space-y-3">
-                    <div class="flex items-center space-x-2 text-red-400 font-semibold">
-                        <i data-lucide="credit-card" class="w-5 h-5"></i>
-                        <span>Financial Fraud / UPI Scam</span>
-                    </div>
-                    <ol class="list-decimal list-inside space-y-2 text-xs text-gray-300">
-                        <li>Immediately call national helpline <strong>1930</strong> (National Cyber Crime Reporting Portal).</li>
-                        <li>Block your UPI APPs, SIM, and bank cards via net banking or customer care.</li>
-                        <li>Lodge an official report at <a href="https://cybercrime.gov.in" target="_blank" class="text-blue-400 underline">cybercrime.gov.in</a> within 2 hours ("Golden Hour").</li>
-                        <li>Submit formal written complaint to bank branch manager to invoke zero-liability norms.</li>
-                    </ol>
-                </div>
-                <!-- Playbook 2 -->
-                <div class="bg-gray-900 border border-amber-900/50 rounded-xl p-5 space-y-3">
-                    <div class="flex items-center space-x-2 text-amber-400 font-semibold">
-                        <i data-lucide="user-x" class="w-5 h-5"></i>
-                        <span>Account Takeover / Hacked Account</span>
-                    </div>
-                    <ol class="list-decimal list-inside space-y-2 text-xs text-gray-300">
-                        <li>Attempt password reset via linked recovery phone/email.</li>
-                        <li>Revoke active sessions/devices in Google, Meta, or WhatsApp security settings.</li>
-                        <li>Inform contacts on other platforms that your account is compromised to prevent scamming.</li>
-                        <li>Report account compromise directly to platform emergency support desk.</li>
-                    </ol>
-                </div>
-                <!-- Playbook 3 -->
-                <div class="bg-gray-900 border border-blue-900/50 rounded-xl p-5 space-y-3">
-                    <div class="flex items-center space-x-2 text-blue-400 font-semibold">
-                        <i data-lucide="smartphone" class="w-5 h-5"></i>
-                        <span>Lost or Stolen Smartphone</span>
-                    </div>
-                    <ol class="list-decimal list-inside space-y-2 text-xs text-gray-300">
-                        <li>Visit <a href="https://ceir.gov.in" target="_blank" class="text-blue-400 underline">CEIR Portal (Govt of India)</a> to block device IMEI network-wide.</li>
-                        <li>Remotely wipe device via Google Find My Device or Apple iCloud.</li>
-                        <li>Block your SIM card immediately via telecom provider to stop OTP interception.</li>
-                        <li>File an e-FIR at local police portal for lost property.</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
+<script>
+var DATA_FILE="manifest.json",CHECK_FILE="privacy_checklist.html",KEY="privacy_checklist_v1";
+var M=null,CL=[],TOTAL=0,cat="All";
+var $=function(i){return document.getElementById(i)};
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+var TABS=[["check","Checklist"],["scan","Scanner"],["post","Posts"],["tips","Tips"],["notice","Letters"],["rights","Rights"],["events","Events"],["emerg","Emergency"]];
+function tab(n){TABS.forEach(function(t){$("t-"+t[0]).classList.toggle("hide",t[0]!==n)});
+ [].forEach.call($("nav").children,function(b,i){b.classList.toggle("on",TABS[i][0]===n)})}
+function fail(m){var e=$("err");e.classList.remove("hide");e.innerHTML="<h3>Could not load data</h3><p>"+m+"</p><p class='mu'>Open this page from GitHub Pages or a local server (run <code>python -m http.server</code> in this folder). Opening the file directly blocks reading other files.</p>"}
+function st(){try{return JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){return{}}}
+function sv(o){try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}}
 
-        <!-- 5. EVENT REGISTRATION PRIVACY CHECKLIST TAB -->
-        <div id="sec-events" class="tab-content hidden">
-            <div class="max-w-3xl mx-auto">
-                <div class="mb-6 text-center">
-                    <h1 class="text-2xl font-bold text-white">Event Registration Privacy Checklist</h1>
-                    <p class="text-gray-400 text-sm mt-1">Protect your personal data when signing up for webinars, hackathons, conferences, and expos.</p>
-                </div>
-                <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-4">
-                    <div class="space-y-3 text-sm text-gray-300" id="event-checklist">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
-            </div>
-        </div>
+/* ---------- checklist (reads privacy_checklist.html) ---------- */
+function drawCheck(){var s=st(),h="";
+ CL.forEach(function(sec,si){h+='<div class="card"><h3>'+esc(sec[0])+'</h3>'+(sec[1]?'<p class="mu">'+esc(sec[1])+'</p>':"");
+  sec[2].forEach(function(t,ii){var k=si+"-"+ii;h+='<label class="ck"><input type="checkbox" '+(s[k]?"checked":"")+' onchange="tick(\''+k+'\',this.checked)"><span>'+esc(t)+'</span></label>'});h+="</div>"});
+ $("chlist").innerHTML=h;score()}
+function tick(k,v){var s=st();s[k]=v;sv(s);score()}
+function score(){var s=st(),n=0;Object.keys(s).forEach(function(k){if(/^\d+-\d+$/.test(k)&&s[k])n++});
+ var p=TOTAL?Math.round(n/TOTAL*100):0,l=p>=80?["Privacy Pro","var(--ok)"]:p>=50?["Getting there","var(--warn)"]:["Danger zone","var(--bad)"];
+ $("chscore").textContent=n+" / "+TOTAL+" ("+p+"%)";$("chlevel").textContent=l[0];$("chlevel").style.color=l[1];$("chbar").style.width=p+"%";$("chbar").style.background=l[1]}
+function resetCheck(){if(confirm("Clear all ticks?")){var s=st(),o={};if(s.nm)o.nm=s.nm;if(s.dt)o.dt=s.dt;sv(o);drawCheck()}}
 
-        <!-- 6. KNOWLEDGE LIBRARY & 100+ TIPS TAB -->
-        <div id="sec-knowledge" class="tab-content hidden">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
-                <div>
-                    <h1 class="text-2xl font-bold text-white">Privacy Knowledge Vault & 100+ Tips</h1>
-                    <p class="text-gray-400 text-sm">Searchable repository of actionable privacy techniques.</p>
-                </div>
-                <input type="text" id="tip-search" oninput="filterTips()" placeholder="Search tips (e.g. SIM, WhatsApp, Browser)..." class="bg-gray-900 border border-gray-800 rounded-lg px-4 py-2 text-sm text-gray-200 focus:outline-none focus:border-blue-500 w-full md:w-72">
-            </div>
-            <div id="tips-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-        </div>
+/* ---------- scanner ---------- */
+var VD=[[0,1,2,3,4,5,6,7,8,9],[1,2,3,4,0,6,7,8,9,5],[2,3,4,0,1,7,8,9,5,6],[3,4,0,1,2,8,9,5,6,7],[4,0,1,2,3,9,5,6,7,8],[5,9,8,7,6,0,4,3,2,1],[6,5,9,8,7,1,0,4,3,2],[7,6,5,9,8,2,1,0,4,3],[8,7,6,5,9,3,2,1,0,4],[9,8,7,6,5,4,3,2,1,0]];
+var VP=[[0,1,2,3,4,5,6,7,8,9],[1,5,7,6,2,8,3,0,9,4],[5,8,0,3,7,9,6,1,4,2],[8,9,1,6,0,4,3,5,2,7],[9,4,5,3,1,2,6,8,7,0],[4,2,8,6,5,7,3,9,0,1],[2,7,9,3,8,0,6,4,1,5],[7,0,4,6,9,1,3,2,5,8]];
+function verhoeff(s){var c=0,a=s.split("").reverse();for(var i=0;i<a.length;i++)c=VD[c][VP[i%8][+a[i]]];return c===0}
+function luhn(s){var sum=0,alt=false;for(var i=s.length-1;i>=0;i--){var d=+s[i];if(alt){d*=2;if(d>9)d-=9}sum+=d;alt=!alt}return sum%10===0}
+var DET=[
+{id:"SECRET",label:"Password / secret",risk:"High",re:/\b(?:password|passwd|pwd|passcode|secret|api[_ -]?key|token)\s*(?:is|=|:)\s*["']?([^\s"',;]{4,})/gi,g:1},
+{id:"APIKEY",label:"API key",risk:"High",re:/\b(?:sk-[A-Za-z0-9_-]{16,}|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{30,}|AIza[0-9A-Za-z_-]{30,})/g},
+{id:"OTP",label:"OTP / PIN / CVV",risk:"High",re:/\b(?:otp|pin|cvv|cvc)\s*(?:is|=|:)?\s*(\d{3,8})(?!\d)/gi,g:1},
+{id:"CARD",label:"Card number",risk:"High",re:/(?<!\d)(?:\d[ -]?){13,19}(?!\d)/g,ok:function(v){var d=v.replace(/\D/g,"");return d.length>=13&&d.length<=19&&luhn(d)}},
+{id:"AADHAAR",label:"Aadhaar number",risk:"High",re:/(?<!\d)[2-9]\d{3}[ -]?\d{4}[ -]?\d{4}(?!\d)/g,ok:function(v){return verhoeff(v.replace(/\D/g,""))}},
+{id:"EMAIL",label:"Email address",risk:"Medium",re:/[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}/g},
+{id:"UPI",label:"UPI ID",risk:"Medium",re:/(?<![\w.@-])[A-Za-z0-9._-]{2,}@[A-Za-z]{2,}(?![\w@-])(?!\.\w)/g},
+{id:"PAN",label:"PAN card",risk:"High",re:/(?<![A-Za-z0-9])[A-Za-z]{3}[PCHFATBLJGpchfatblj][A-Za-z]\d{4}[A-Za-z](?![A-Za-z0-9])/g,ok:function(v){return v===v.toUpperCase()}},
+{id:"IFSC",label:"IFSC code",risk:"Low",re:/(?<![A-Za-z0-9])[A-Z]{4}0[A-Z0-9]{6}(?![A-Za-z0-9])/g},
+{id:"PHONE",label:"Mobile number",risk:"Medium",re:/(?<![\d])(?:\+91[ -]?|91[ -]?|0)?[6-9]\d{4}[ -]?\d{5}(?!\d)/g},
+{id:"DOB",label:"Date of birth",risk:"Medium",re:/\b(?:dob|date of birth|born on|birthday)\s*[:\-]?\s*(\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4})/gi,g:1},
+{id:"PINCODE",label:"PIN code",risk:"Low",re:/\b(?:pin ?code|pincode|zip)\s*[:\-]?\s*([1-9]\d{5})(?!\d)/gi,g:1}];
+function scan(text){var used=[],hits=[];
+ DET.forEach(function(d){d.re.lastIndex=0;var m;
+  while((m=d.re.exec(text))!==null){if(m[0]==="")d.re.lastIndex++;
+   var v=d.g?m[d.g]:m[0],st0=m.index+(d.g?m[0].lastIndexOf(v):0),en=st0+v.length;
+   if(d.ok&&!d.ok(v))continue;
+   if(used.some(function(u){return st0<u[1]&&en>u[0]}))continue;
+   used.push([st0,en]);hits.push({id:d.id,label:d.label,risk:d.risk,s:st0,e:en,v:v})}});
+ return hits.sort(function(a,b){return a.s-b.s})}
+function runScan(){var t=$("sin").value,o=$("sout");
+ if(!t.trim()){o.innerHTML='<p class="mu">Paste some text first.</p>';return}
+ var h=scan(t);
+ if(!h.length){o.innerHTML='<pre>'+esc(t)+'</pre><p><span class="pill" style="background:var(--ok)">Clean</span> No personal data patterns found. Names and free-text addresses cannot be detected automatically, so read it once yourself.</p>';return}
+ var top=h.some(function(x){return x.risk==="High"})?"High":h.some(function(x){return x.risk==="Medium"})?"Medium":"Low",
+ col={High:"var(--bad)",Medium:"var(--warn)",Low:"#7dd3fc"},cnt={};
+ h.forEach(function(x){cnt[x.label]=(cnt[x.label]||0)+1});
+ var out="",p=0;h.forEach(function(x){out+=esc(t.slice(p,x.s))+'<mark class="'+x.risk+'" title="'+x.label+'">'+esc(x.v)+"</mark>";p=x.e});out+=esc(t.slice(p));
+ o.innerHTML='<p><span class="pill" style="background:'+col[top]+'">'+top+' risk</span> '+h.length+" item(s) found</p><ul>"+Object.keys(cnt).map(function(k){return"<li>"+k+": "+cnt[k]+"</li>"}).join("")+"</ul><pre>"+out+"</pre>"}
+function redact(){var t=$("sin").value,h=scan(t),r="",p=0;
+ h.forEach(function(x){r+=t.slice(p,x.s)+"["+x.id+"_REDACTED]";p=x.e});r+=t.slice(p);$("sin").value=r;runScan()}
+function sample(risky){$("sin").value=risky?"Hi, my name is Ravi. My email is ravi.k@example.com and my mobile is 98765 43210. Aadhaar: 2345 6789 0124. PAN ABCPE1234F. Pay me at ravi@okbank. My password is Tiger@2024 and the OTP is 482913. DOB: 12/05/2004.":"Please explain the DPDP Act to a first-year student in 100 words. Order number 123456 was delivered on 12 May. The meeting is at 4 pm in room 204.";runScan()}
+function clearScan(){$("sin").value="";$("sout").innerHTML=""}
 
-        <!-- 7. POST GENERATOR TAB -->
-        <div id="sec-social" class="tab-content hidden">
-            <div class="max-w-2xl mx-auto space-y-6">
-                <div>
-                    <h1 class="text-2xl font-bold text-white">Privacy Awareness Post Generator</h1>
-                    <p class="text-gray-400 text-sm">Generate bite-sized privacy awareness posts for LinkedIn, Twitter/X, or WhatsApp groups.</p>
-                </div>
-                <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 space-y-4">
-                    <label class="block text-sm font-medium text-gray-300">Select Awareness Topic:</label>
-                    <select id="post-topic" class="w-full bg-gray-950 border border-gray-800 rounded-lg p-2.5 text-sm text-gray-200 focus:outline-none">
-                        <option value="whatsapp">WhatsApp Privacy Essentials</option>
-                        <option value="financial">Avoiding UPI & APK Frauds</option>
-                        <option value="ai">AI Data Privacy Precautions</option>
-                        <option value="sim">SIM Swap Protection Tips</option>
-                        <option value="dpdp">Digital Citizen Rights (DPDP)</option>
-                    </select>
-                    <button onclick="generateSocialPost()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2.5 rounded-lg text-sm transition">Generate Post</button>
-                    <div id="post-output-container" class="hidden space-y-3">
-                        <textarea id="post-output" rows="8" class="w-full bg-gray-950 border border-gray-800 rounded-lg p-3 text-xs text-gray-200 focus:outline-none" readonly></textarea>
-                        <button onclick="copyPost()" class="w-full bg-gray-800 hover:bg-gray-700 text-gray-200 py-2 rounded text-xs font-semibold flex items-center justify-center space-x-2">
-                            <i data-lucide="copy" class="w-4 h-4"></i><span>Copy to Clipboard</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+/* ---------- posts ---------- */
+function fillPosts(){$("ptopic").innerHTML=M.posts.map(function(p,i){return'<option value="'+i+'">'+(i+1)+". "+esc(p.t)+"</option>"}).join("")}
+function makePost(){var p=M.posts[+$("ptopic").value],pl=$("pplat").value,t;
+ if(pl==="wa")t="*"+p.t+"*\n\n"+p.p1+"\n\n"+p.p2+"\n\n"+p.tags;
+ else if(pl==="ig")t=p.t.toUpperCase()+"\n\n"+p.p1+"\n\n"+p.p2+"\n\n.\n.\n"+p.tags;
+ else t=p.t+"\n\n"+p.p1+"\n\n"+p.p2+"\n\nFound this useful? Share it with a friend who needs it.\n\n"+p.tags;
+ $("pout").textContent=t;$("pout").classList.remove("hide");$("pcopy").classList.remove("hide")}
+function randPost(){$("ptopic").value=Math.floor(Math.random()*M.posts.length);makePost()}
+function copyTxt(id){var t=$(id).textContent,ok=function(){alert("Copied")};
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){fb(t,ok)})}else fb(t,ok)}
+function fb(t,ok){var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");ok()}catch(e){}document.body.removeChild(a)}
 
-    </main>
+/* ---------- tips ---------- */
+function renderTips(){var q=$("tq").value.toLowerCase(),cs=["All"];
+ M.tips.forEach(function(t){if(cs.indexOf(t.c)<0)cs.push(t.c)});
+ $("tchips").innerHTML=cs.map(function(c){return'<button class="'+(c===cat?"b":"g")+'" onclick="cat=\''+c+'\';renderTips()">'+c+"</button>"}).join("");
+ var l=M.tips.filter(function(t){return(cat==="All"||t.c===cat)&&(t.t+t.d+t.c).toLowerCase().indexOf(q)>=0});
+ $("tgrid").innerHTML=l.length?l.map(function(t){return'<div class="card"><span class="tag">'+esc(t.c)+"</span><h3>"+esc(t.t)+'</h3><p class="mu" style="font-size:14px">'+esc(t.d)+"</p></div>"}).join(""):'<div class="card mu">No tips match your search.</div>'}
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-gray-800 py-6 text-center text-xs text-gray-500">
-        <div class="max-w-7xl mx-auto px-4 space-y-2">
-            <p>PrivacyGuard Web Application — Zero tracking, local client-side execution.</p>
-            <p>Compliant with Digital Personal Data Protection (DPDP) Principles.</p>
-        </div>
-    </footer>
+/* ---------- letters and playbooks ---------- */
+function fillNotices(){$("ntype").innerHTML=M.notices.map(function(n,i){return'<option value="'+i+'">'+esc(n.name)+"</option>"}).join("");makeNotice()}
+function makeNotice(){var n=M.notices[+$("ntype").value],d=new Date().toLocaleDateString("en-IN");
+ var v={name:$("nname").value||"[Your full name]",company:$("ncomp").value||"[Company name]",account:$("nacc").value||"[Account email or ID]",date:d};
+ $("nout").textContent=n.body.replace(/\{(\w+)\}/g,function(_,k){return v[k]})}
+function fillPlaybooks(){$("pbs").innerHTML=M.playbooks.map(function(p){return'<div class="card"><h3>'+esc(p.t)+"</h3><ol>"+p.steps.map(function(s){return"<li>"+esc(s)+"</li>"}).join("")+"</ol></div>"}).join("")}
 
-    <!-- Application Script -->
-    <script>
-        // Tab Switcher
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('nav button').forEach(el => {
-                el.classList.remove('active-tab');
-                el.classList.add('text-gray-400');
-            });
-            document.getElementById('sec-' + tabId).classList.remove('hidden');
-            const activeBtn = document.getElementById('tab-' + tabId);
-            activeBtn.classList.add('active-tab');
-            activeBtn.classList.remove('text-gray-400');
-        }
+/* ---------- rights and events ---------- */
+function fillRights(){$("rgrid").innerHTML=M.rights.map(function(r){return'<div class="card"><h3>'+esc(r.t)+'</h3><p class="mu" style="font-size:14px">'+esc(r.d)+"</p></div>"}).join("")}
+function fillEvents(){var s={};try{s=JSON.parse(localStorage.getItem("privacy_events_v1")||"{}")}catch(e){}
+ $("elist").innerHTML=M.events.map(function(t,i){return'<label class="ck"><input type="checkbox" '+(s[i]?"checked":"")+' onchange="evTick('+i+',this.checked)"><span>'+esc(t)+"</span></label>"}).join("");evScore()}
+function evTick(i,v){var s={};try{s=JSON.parse(localStorage.getItem("privacy_events_v1")||"{}")}catch(e){}s[i]=v;try{localStorage.setItem("privacy_events_v1",JSON.stringify(s))}catch(e){}evScore()}
+function evScore(){var s={};try{s=JSON.parse(localStorage.getItem("privacy_events_v1")||"{}")}catch(e){}var n=0;M.events.forEach(function(_,i){if(s[i])n++});$("escore").textContent=n+" / "+M.events.length+" done"}
 
-        // --- DATA: 47-POINT CHECKLIST ---
-        const checklistData = [
-            {
-                category: "1. Account & Authentication Security",
-                items: [
-                    "Enable 2FA (Authenticator App) on primary email.",
-                    "Enable 2FA on social media accounts.",
-                    "Use a dedicated Password Manager (e.g. Bitwarden).",
-                    "Replace weak passwords with 16+ char passphrases.",
-                    "Remove phone-number based 2FA where TOTP exists.",
-                    "Set up account recovery keys for cloud services."
-                ]
-            },
-            {
-                category: "2. Mobile Device Privacy (Android/iOS)",
-                items: [
-                    "Audit app permissions (Mic, Camera, Location).",
-                    "Disable background location access for non-maps apps.",
-                    "Turn off Bluetooth and Wi-Fi auto-join.",
-                    "Enable SIM Card PIN code.",
-                    "Disable notification previews on lock screen.",
-                    "Revoke accessibility permissions for untrusted apps."
-                ]
-            },
-            {
-                category: "3. Web Browsing & Tracking Defense",
-                items: [
-                    "Use privacy-focused browsers (Brave / Firefox).",
-                    "Install uBlock Origin content blocker.",
-                    "Set DNS-over-HTTPS (e.g. NextDNS / Cloudflare 1.1.1.1).",
-                    "Disable third-party cookies & telemetry.",
-                    "Use separate browser profiles for sensitive work.",
-                    "Clear cookies and web cache weekly."
-                ]
-            },
-            {
-                category: "4. Messaging & Communication Privacy",
-                items: [
-                    "Enable WhatsApp 'Silence Unknown Callers'.",
-                    "Enable WhatsApp Two-Step Verification PIN.",
-                    "Disable cloud backups or turn on encrypted backups.",
-                    "Use Signal for high-sensitivity chats.",
-                    "Disable read receipts and online status where needed.",
-                    "Lock sensitive chat threads."
-                ]
-            },
-            {
-                category: "5. Financial & Banking Cyber-Safety",
-                items: [
-                    "Set daily UPI transaction limits on banking apps.",
-                    "Disable international transactions on credit/debit cards.",
-                    "Never enter UPI PIN to receive money.",
-                    "Avoid downloading financial APKs outside Play Store.",
-                    "Enable instant SMS and email transaction alerts.",
-                    "Keep primary savings bank separate from daily UPI wallet."
-                ]
-            },
-            {
-                category: "6. Indian Legal & Identity Defense",
-                items: [
-                    "Lock Aadhaar biometric details via myAadhaar portal.",
-                    "Use Masked Aadhaar for identity verification.",
-                    "Verify registered mobile numbers on TAFCOP portal.",
-                    "Avoid sharing physical Aadhaar copies unnecessarily.",
-                    "Know emergency helpline number (1930) for cyber fraud."
-                ]
-            },
-            {
-                category: "7. AI & Cloud Data Sanitization",
-                items: [
-                    "Opt-out of model training in ChatGPT / Claude settings.",
-                    "Never paste unencrypted API keys or passwords in AI prompts.",
-                    "Redact PII (Aadhaar, Phone) before AI uploads.",
-                    "Review cloud storage share links (Google Drive/OneDrive).",
-                    "Disable AI feature integrations in email clients."
-                ]
-            },
-            {
-                category: "8. Physical & Network Security",
-                items: [
-                    "Use physical webcam sliders on laptops.",
-                    "Avoid public Wi-Fi without a trusted VPN.",
-                    "Change default admin passwords on home Wi-Fi routers.",
-                    "Disable WPS on home router.",
-                    "Keep operating system auto-updates enabled."
-                ]
-            }
-        ];
-
-        // Load Checklist
-        function loadChecklist() {
-            const container = document.getElementById('checklist-container');
-            let saved = JSON.parse(localStorage.getItem('pg_checklist') || '{}');
-            let html = '';
-
-            checklistData.forEach((cat, cIdx) => {
-                html += `
-                    <div class="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
-                        <div class="bg-gray-900/80 p-4 border-b border-gray-800 font-semibold text-blue-400 text-sm">
-                            ${cat.category}
-                        </div>
-                        <div class="p-4 grid sm:grid-cols-2 gap-3">
-                `;
-                cat.items.forEach((item, iIdx) => {
-                    const key = `${cIdx}-${iIdx}`;
-                    const isChecked = saved[key] ? 'checked' : '';
-                    html += `
-                        <label class="flex items-start space-x-3 text-xs text-gray-300 cursor-pointer p-2 rounded hover:bg-gray-800/50">
-                            <input type="checkbox" onchange="toggleCheck('${key}')" ${isChecked} class="mt-0.5 rounded border-gray-700 bg-gray-950 text-blue-600 focus:ring-blue-500">
-                            <span>${item}</span>
-                        </label>
-                    `;
-                });
-                html += `</div></div>`;
-            });
-            container.innerHTML = html;
-            updateScore();
-        }
-
-        function toggleCheck(key) {
-            let saved = JSON.parse(localStorage.getItem('pg_checklist') || '{}');
-            saved[key] = !saved[key];
-            localStorage.setItem('pg_checklist', JSON.stringify(saved));
-            updateScore();
-        }
-
-        function updateScore() {
-            let saved = JSON.parse(localStorage.getItem('pg_checklist') || '{}');
-            let total = 47;
-            let checked = Object.values(saved).filter(Boolean).length;
-            let pct = Math.round((checked / total) * 100);
-            document.getElementById('score-text').innerText = `${pct}% (${checked}/${total})`;
-            document.getElementById('score-bar').style.width = `${pct}%`;
-        }
-
-        function resetChecklist() {
-            if (confirm("Reset all checklist progress?")) {
-                localStorage.removeItem('pg_checklist');
-                loadChecklist();
-            }
-        }
-
-        // --- DATA: 100+ TIPS GENERATOR & LIBRARY ---
-        const tipsDatabase = Array.from({ length: 102 }, (_, i) => {
-            const topics = [
-                { category: "WhatsApp", title: "Silence Unknown Callers", desc: "Go to WhatsApp Settings > Privacy > Calls and enable 'Silence Unknown Callers' to prevent spam calls." },
-                { category: "Aadhaar", title: "Masked Aadhaar Usage", desc: "Always download and share Masked Aadhaar from myAadhaar portal to hide the first 8 digits." },
-                { category: "UPI Safety", title: "No PIN for Receiving", desc: "Never enter your UPI PIN to receive money. UPI PIN is strictly for debiting money." },
-                { category: "Browser", title: "uBlock Origin Extension", desc: "Use uBlock Origin extension to block dangerous ad networks and tracking scripts." },
-                { category: "Passwords", title: "Passphrase Method", desc: "Combine 4 random words (e.g. 'CoffeeSunsetRobotDance') for easy-to-remember 20+ character security." },
-                { category: "SIM Card", title: "Set SIM PIN", desc: "Lock your physical SIM card with a 4-digit PIN to prevent thieves from putting your SIM in another phone." }
-            ];
-            const base = topics[i % topics.length];
-            return {
-                id: i + 1,
-                category: base.category,
-                title: `${base.title} #${i + 1}`,
-                desc: `${base.desc} Keep your accounts audited regularly.`
-            };
-        });
-
-        function loadTips() {
-            const grid = document.getElementById('tips-grid');
-            renderTips(tipsDatabase);
-        }
-
-        function renderTips(list) {
-            const grid = document.getElementById('tips-grid');
-            grid.innerHTML = list.map(t => `
-                <div class="bg-gray-900 border border-gray-800 p-4 rounded-xl space-y-2">
-                    <span class="text-[10px] uppercase font-bold tracking-wider text-blue-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-800">${t.category}</span>
-                    <h3 class="text-sm font-semibold text-white">${t.title}</h3>
-                    <p class="text-xs text-gray-400">${t.desc}</p>
-                </div>
-            `).join('');
-        }
-
-        function filterTips() {
-            const q = document.getElementById('tip-search').value.toLowerCase();
-            const filtered = tipsDatabase.filter(t => t.title.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q) || t.category.toLowerCase().includes(q));
-            renderTips(filtered);
-        }
-
-        // --- DAILY UPDATES ---
-        function loadDailyAdvisory() {
-            const advisories = [
-                "Lock your Aadhaar biometric data on the myAadhaar app when not in active use.",
-                "Verify suspicious APK files on VirusTotal before installation.",
-                "Review active connected devices on WhatsApp Web settings today.",
-                "Ensure your home Wi-Fi router uses WPA3 or WPA2-AES encryption.",
-                "Check TAFCOP portal to verify mobile numbers issued under your name."
-            ];
-            const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
-            document.getElementById('daily-advisory-text').innerText = advisories[dayOfYear % advisories.length];
-        }
-
-        // --- LOCAL AI PROMPT SCANNER ---
-        function scanPrompt() {
-            const text = document.getElementById('scanner-input').value;
-            const output = document.getElementById('scanner-output');
-            output.classList.remove('hidden');
-
-            const regexes = {
-                "Aadhaar Number": /\b[2-9]\d{3}\s?\d{4}\s?\d{4}\b/g,
-                "PAN Card": /\b[A-Z]{5}[0-9]{4}[A-Z]{1}\b/g,
-                "Email Address": /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/g,
-                "Phone Number": /\b(?:\+91[\-\s]?)?[6-9]\d{9}\b/g
-            };
-
-            let matches = [];
-            for (let [label, pattern] of Object.entries(regexes)) {
-                let found = text.match(pattern);
-                if (found) {
-                    matches.push(`<strong>${label}:</strong> ${found.join(', ')}`);
-                }
-            }
-
-            if (matches.length > 0) {
-                output.innerHTML = `<span class="text-red-400 font-bold">Warning: PII Detected!</span><br>` + matches.join('<br>');
-            } else {
-                output.innerHTML = `<span class="text-emerald-400 font-bold">Clean!</span> No standard PII patterns detected in prompt.`;
-            }
-        }
-
-        function sanitizePrompt() {
-            let text = document.getElementById('scanner-input').value;
-            text = text.replace(/\b[2-9]\d{3}\s?\d{4}\s?\d{4}\b/g, "[REDACTED_AADHAAR]");
-            text = text.replace(/\b[A-Z]{5}[0-9]{4}[A-Z]{1}\b/g, "[REDACTED_PAN]");
-            text = text.replace(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/g, "[REDACTED_EMAIL]");
-            text = text.replace(/\b(?:\+91[\-\s]?)?[6-9]\d{9}\b/g, "[REDACTED_PHONE]");
-            document.getElementById('scanner-input').value = text;
-            scanPrompt();
-        }
-
-        // --- DPDP NOTICE GENERATOR ---
-        function generateDPDPNotice() {
-            const name = document.getElementById('dpdp-name').value || "[Your Full Name]";
-            const company = document.getElementById('dpdp-company').value || "[Company Name]";
-            const account = document.getElementById('dpdp-account').value || "[Email/Phone]";
-
-            const notice = `To Data Protection Officer, ${company}
-
-SUBJECT: NOTICE FOR ERASURE OF PERSONAL DATA UNDER DPDP ACT 2023
-
-Dear Sir/Madam,
-
-I am writing as a Data Principal under the Digital Personal Data Protection Act (2023). 
-
-I hereby withdraw my consent for processing my personal data linked to account identifier: ${account}.
-
-Under Section 6(5) & Section 12 of the DPDP Act 2023, you are required to erase and cease processing my personal data without undue delay unless retention is required by law.
-
-Please confirm compliance within 30 days.
-
-Sincerely,
-${name}`;
-
-            const out = document.getElementById('dpdp-output');
-            out.value = notice;
-            out.classList.remove('hidden');
-        }
-
-        // --- EVENT CHECKLIST DATA ---
-        function loadEventChecklist() {
-            const items = [
-                "Use a secondary or alias email address for event registrations.",
-                "Provide work/temp phone number instead of personal primary number.",
-                "Uncheck default consent checkboxes for 'Sponsor Communications'.",
-                "Do not upload unmasked identity cards during badge generation.",
-                "Review badge QR code contents to ensure sensitive data isn't exposed publicly."
-            ];
-            const container = document.getElementById('event-checklist');
-            container.innerHTML = items.map((item, i) => `
-                <div class="flex items-center space-x-3 p-3 bg-gray-950 rounded-lg border border-gray-800">
-                    <input type="checkbox" id="evt-${i}" class="rounded border-gray-700 bg-gray-900 text-blue-600">
-                    <label for="evt-${i}" class="text-xs text-gray-200 cursor-pointer">${item}</label>
-                </div>
-            `).join('');
-        }
-
-        // --- POST GENERATOR ---
-        function generateSocialPost() {
-            const topic = document.getElementById('post-topic').value;
-            let post = "";
-
-            if (topic === "whatsapp") {
-                post = `🔒 3 Quick WhatsApp Settings to Enable Today:\n\n1️⃣ Silence Unknown Callers (Settings > Privacy)\n2️⃣ Enable Two-Step Verification PIN\n3️⃣ Turn on End-to-End Encrypted Backups\n\nProtect your digital footprint! #PrivacyGuard #DigitalSafety #CyberSecurity`;
-            } else if (topic === "financial") {
-                post = `⚠️ Important UPI Safety Reminder:\n\nRemember: You NEVER enter your UPI PIN to RECEIVE money. UPI PIN is strictly for paying out. Stay safe from QR code scams! #CyberAwareness #FinancialSafety`;
-            } else if (topic === "ai") {
-                post = `🤖 AI Prompt Safety Tip:\n\nNever paste sensitive customer data, API keys, passwords, or personal identity numbers into public AI models like ChatGPT. Sanitize before pasting! #AIPrivacy #DataProtection`;
-            } else {
-                post = `🛡️ Protect Your Digital Identity under DPDP Act 2023:\n\nYou have the right to withdraw consent and request erasure of your data from commercial platforms. Stay informed! #DPDP #DataPrivacy`;
-            }
-
-            document.getElementById('post-output').value = post;
-            document.getElementById('post-output-container').classList.remove('hidden');
-        }
-
-        function copyPost() {
-            const txt = document.getElementById('post-output');
-            txt.select();
-            document.execCommand('copy');
-            alert('Post copied to clipboard!');
-        }
-
-        // Initialize App
-        window.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-            loadChecklist();
-            loadTips();
-            loadDailyAdvisory();
-            loadEventChecklist();
-        });
-    </script>
+/* ---------- boot ---------- */
+async function boot(){
+ $("nav").innerHTML=TABS.map(function(t){return'<button onclick="tab(\''+t[0]+'\')">'+t[1]+"</button>"}).join("");tab("check");
+ try{var r=await fetch(DATA_FILE);if(!r.ok)throw new Error(DATA_FILE+" not found");M=await r.json()}catch(e){fail("Could not read "+DATA_FILE+". "+esc(e.message));return}
+ var day=Math.floor((new Date()-new Date(new Date().getFullYear(),0,0))/864e5);$("daily").innerHTML="<b>Daily advisory:</b> "+esc(M.advisories[day%M.advisories.length]);
+ try{var h=await (await fetch(CHECK_FILE)).text(),m=h.match(/var DATA=(\[[\s\S]*?\n\]);\s*\nvar KEY/);if(!m)throw new Error("checklist data not found in "+CHECK_FILE);
+  CL=JSON.parse(m[1]);TOTAL=CL.reduce(function(a,s){return a+s[2].length},0);$("chsrc").textContent="Loaded "+TOTAL+" items from "+CHECK_FILE+". Ticks are shared with that page.";drawCheck()}
+ catch(e){fail("Could not read the checklist. "+esc(e.message))}
+ fillPosts();renderTips();fillNotices();fillPlaybooks();fillRights();fillEvents()}
+boot();
+</script>
 </body>
 </html>
